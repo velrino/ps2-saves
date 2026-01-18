@@ -1,24 +1,27 @@
-# PS2 Saves para PCSX2
+# PS2 Saves for PCSX2
 
-## Estrutura
+## Structure
 
 ```
 saves/
-├── Burnout3-USA.ps2          (BASLUS-21050)
-├── NFS-MostWanted-USA.ps2    (BASLUS-21351)
-└── [outros jogos]-USA.ps2
+├── Burnout3-USA.ps2                    (BASLUS-21050)
+├── NFS-MostWanted-USA.ps2              (BASLUS-21351)
+├── NFS-Carbon-USA.ps2                  (BASLUS-21494)
+├── NFS-Underground2-USA.ps2            (BASLUS-21065)
+├── MortalKombat-ShaolinMonks-USA.ps2   (BASLUS-21087)
+└── ...
 ```
 
-## Como adicionar novos saves
+## How to add new saves
 
-### 1. Baixar saves
+### 1. Download saves
 
-- **GameFAQs**: https://gamefaqs.gamespot.com (busque pelo jogo → Saves)
+- **GameFAQs**: https://gamefaqs.gamespot.com (search for game → Saves)
 - **PS2-HOME**: https://www.ps2-home.com/forum/viewtopic.php?t=14285
 
-Formatos suportados: `.psu`, `.max`, `.psv`, `.cbs`, `.xps`, `.sps`
+Supported formats: `.psu`, `.max`, `.psv`, `.cbs`, `.xps`, `.sps`
 
-### 2. Instalar mymcplus (apenas uma vez)
+### 2. Install mymcplus (only once)
 
 ```bash
 cd /Users/velrino/Documents/ps2/saves
@@ -27,40 +30,40 @@ source venv/bin/activate
 pip install mymcplus
 ```
 
-### 3. Criar memory card e importar save
+### 3. Create memory card and import save
 
 ```bash
 source venv/bin/activate
-python -m mymcplus NomeDoJogo-USA.ps2 format
-python -m mymcplus NomeDoJogo-USA.ps2 import /caminho/do/save.psu
-python -m mymcplus NomeDoJogo-USA.ps2 dir  # verificar
+python -m mymcplus GameName-USA.ps2 format
+python -m mymcplus GameName-USA.ps2 import /path/to/save.psu
+python -m mymcplus GameName-USA.ps2 dir  # verify
 ```
 
-### 4. No PCSX2
+### 4. In PCSX2
 
 1. Settings → Memory Cards
 2. Folder: `/Users/velrino/Documents/ps2/saves`
-3. Selecionar o `.ps2` do jogo no Slot 1
+3. Select the `.ps2` file for the game in Slot 1
 
-## Regiões
+## Regions
 
-⚠️ **O save deve ser da mesma região do jogo!**
+**The save must be from the same region as the game!**
 
-| Código | Região |
-|--------|--------|
+| Code | Region |
+|------|--------|
 | SLUS / BASLUS | USA (NTSC-U) |
-| SLES / BESLES | Europa (PAL) |
-| SLPM | Japão (NTSC-J) |
+| SLES / BESLES | Europe (PAL) |
+| SLPM | Japan (NTSC-J) |
 
-## Comandos úteis
+## Useful commands
 
 ```bash
-# Listar saves no memory card
-python -m mymcplus Jogo.ps2 dir
+# List saves on memory card
+python -m mymcplus Game.ps2 dir
 
-# Exportar save
-python -m mymcplus Jogo.ps2 export BASLUS-XXXXX save.psu
+# Export save
+python -m mymcplus Game.ps2 export BASLUS-XXXXX save.psu
 
-# Deletar save
-python -m mymcplus Jogo.ps2 delete BASLUS-XXXXX
+# Delete save
+python -m mymcplus Game.ps2 delete BASLUS-XXXXX
 ```
